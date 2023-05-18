@@ -7,12 +7,8 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React, { MouseEvent, useState } from "react";
 import { useNavigate } from "react-router";
-// import drinks from "../data";
-import SingleCocktail from "./SingleCocktail";
 import { useSelector } from "react-redux";
-import { filterCocktails } from "../Store/Store";
 
 type Drinks = {
   idDrink: string;
@@ -26,24 +22,26 @@ type Drinks = {
 const Cocktails = () => {
   const navigate = useNavigate();
 
-  const [id, setId] = useState("");
-
-  const handleClick = (e: MouseEvent) => {
-    // setShowComponent(true);
-    // navigate(`/single`)
-    e.preventDefault();
-  };
-
   var filter = useSelector((state: any) => state.filteredCocktails);
-  console.log(filter);
-  console.log(typeof filter);
 
   return (
     <>
       <Container>
-        {/* <Box sx={{ display: "flex" }}> */}
-        <Box sx={{display : 'flex', justifyContent : 'center', m : 2}}>
-          <Typography variant="h2">Cocktails </Typography>
+        <Box
+          sx={{
+            display: { xs: "none", md: "flex", sm: "flex" },
+            justifyContent: "center",
+            m: 2,
+          }}
+        >
+          <Typography
+            letterSpacing={3}
+            fontWeight={"bold"}
+            fontFamily={"roboto"}
+            variant="h4"
+          >
+            Cocktails{" "}
+          </Typography>
         </Box>
         <Grid
           container
@@ -51,19 +49,7 @@ const Cocktails = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {filter.map((drink: any) => {
-            // const {
-            //   idDrink,
-            //   strDrink,
-            //   strDrinkThumb,
-            //   strAlcoholic,
-            //   strGlass,
-            //   strCategory,
-            // }: Drinks = drink;
-
             return (
-              // <Container>
-              //   <Box>
-              //     <Box>
               <Grid item xs={2} sm={4} md={4}>
                 <Card
                   key={drink.idDrink}
@@ -73,25 +59,43 @@ const Cocktails = () => {
                     alignContent: "center",
                   }}
                 >
-                  <CardMedia
-                    sx={{ width: "20rem" }}
-                    component="img"
-                    src={drink.strDrinkThumb}
-                  ></CardMedia>
-                  <Typography variant="h4">{drink.strDrink}</Typography>
-                  <Typography paragraph>{drink.strGlass}</Typography>
-
-                  <Typography paragraph>{drink.strCategory}</Typography>
                   <Box sx={{ display: "flex", justifyContent: "center" }}>
+                    <CardMedia
+                      sx={{ width: "20rem", height: "20rem" }}
+                      component="img"
+                      src={drink.strDrinkThumb}
+                    ></CardMedia>
+                  </Box>
+                  <Box sx={{ p: 2 }}>
+                    <Typography
+                      letterSpacing={3}
+                      fontWeight={"bold"}
+                      variant="h4"
+                    >
+                      {drink.strDrink}
+                    </Typography>
+                    <Typography
+                      letterSpacing={3}
+                      fontWeight={"bold"}
+                      paragraph
+                      sx={{ marginTop: 2 }}
+                    >
+                      {drink.strGlass}
+                    </Typography>
+
+                    <Typography color={"grey"} letterSpacing={3} paragraph>
+                      {drink.strCategory}
+                    </Typography>
                     <Button
                       variant="contained"
                       sx={{
-                        "&:hover": { backgroundColor: "#339933" },
+                        "&:hover": { backgroundColor: "#006600" },
                         backgroundColor: "#339933",
                         color: "white",
-                        m: 2,
+                        textTransform: "none",
                       }}
                       onClick={() => {
+                        
                         navigate(`/single/${drink.idDrink}`);
                       }}
                     >
@@ -100,13 +104,9 @@ const Cocktails = () => {
                   </Box>
                 </Card>
               </Grid>
-              //     </Box>
-              //   </Box>
-              // </Container>
             );
           })}
         </Grid>
-        {/* </Box> */}
       </Container>
     </>
   );

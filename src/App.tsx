@@ -17,13 +17,29 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <AppBar sx={{ backgroundColor: "#feeee9" }} position="static">
+        <AppBar sx={{ backgroundColor: "white" }} position="static">
           <Container
             sx={{ display: "flex", justifyContent: "space-between", p: 0.5 }}
           >
             <Container sx={{ display: "block", m: 2 }}>
-              <Typography variant="h5" color="black">
-                The Cocktail DB
+              <Typography
+                letterSpacing={3}
+                variant="h5"
+                color="black"
+                sx={{ display: "flex" }}
+              >
+                The{" "}
+                <Box
+                  sx={{
+                    marginLeft: "0.5rem",
+                    marginRight: "0.5rem",
+                    color: "#198d19",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Cocktail
+                </Box>{" "}
+                DB
               </Typography>
             </Container>
 
@@ -55,6 +71,14 @@ const App = () => {
               </ListItem>
             </List>
           </Container>
+          <Container
+            maxWidth={false}
+            sx={{
+              backgroundColor: "#005a00",
+              height: "0.15rem",
+              boxShadow: 5,
+            }}
+          ></Container>
         </AppBar>
 
         <Routing />
