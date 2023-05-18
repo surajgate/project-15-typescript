@@ -1,8 +1,5 @@
-import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
-
-const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
-
-
+import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Data } from "../data";
 
 interface Cocktail {
   idDrink: string;
@@ -15,12 +12,12 @@ interface Cocktail {
 
 interface AppState {
   cocktails: Cocktail[];
-  filterCocktails: Cocktail[];
+  filteredCocktails: Cocktail[];
 }
 
 const initialState: AppState = {
   cocktails: [],
-  filterCocktails: [],
+  filteredCocktails: [],
 };
 
 const cocktailSlice = createSlice({
@@ -28,22 +25,25 @@ const cocktailSlice = createSlice({
   initialState,
   reducers: {
     setCocktails: (state, action: PayloadAction<Cocktail[]>) => {
-      state.cocktails = action.payload
-      state.filterCocktails = action.payload
+      state.cocktails = Data;
+      state.filteredCocktails = Data;
       console.log(state.cocktails);
-      
     },
     filterCocktails: (state, action: PayloadAction<string>) => {
       const searchTerm = action.payload.toLowerCase();
-      state.filterCocktails = state.cocktails.filter((cocktail: any) =>
+      state.filteredCocktails = state.cocktails.filter((cocktail) =>
         cocktail.strDrink.toLowerCase().includes(searchTerm)
       );
+      console.log(state.filteredCocktails);
     },
   },
 });
 
 export const { setCocktails, filterCocktails } = cocktailSlice.actions;
 
-export const store = configureStore({
+const store = configureStore({
   reducer: cocktailSlice.reducer,
 });
+console.log(store.getState().cocktails);
+
+export default store;

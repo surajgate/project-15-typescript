@@ -1,6 +1,8 @@
 import { Box, Button, CardMedia, Container, Typography } from "@mui/material";
 import React from "react";
-import drinks from "../data";
+import { Data } from "../data";
+import { useNavigate, useParams } from "react-router";
+import { useSelector } from "react-redux";
 
 type Drinks = {
   strDrink: string;
@@ -12,17 +14,27 @@ type Drinks = {
   strIngredient1: string;
 };
 
-const {
-  strDrink,
-  strDrinkThumb,
-  strCategory,
-  strAlcoholic,
-  strGlass,
-  strInstructions,
-  strIngredient1,
-}: Drinks = drinks[3];
-
 const SingleCocktail = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  var filter = useSelector((state: any) => state.filteredCocktails);
+  console.log(filter);
+
+  var singleCocktail = filter.filter((filt: any) => {
+    return id && filt.idDrink.toLowerCase().includes(id.toLowerCase());
+  });
+
+  const {
+    strDrink,
+    strDrinkThumb,
+    strCategory,
+    strAlcoholic,
+    strGlass,
+    strInstructions,
+    strIngredient1,
+  }: Drinks = singleCocktail[0];
+
   return (
     <>
       <Container>
@@ -31,6 +43,9 @@ const SingleCocktail = () => {
             variant="contained"
             color={"success"}
             sx={{ width: "10rem", backgroundColor: "#339933" }}
+            onClick={() => {
+              navigate("/");
+            }}
           >
             Back Home
           </Button>

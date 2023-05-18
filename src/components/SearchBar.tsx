@@ -20,7 +20,8 @@ useEffect(() => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      setCocktails(data);
+      
+      dispatch(setCocktails(data));
     //   console.log(data);
       
     });
@@ -28,7 +29,7 @@ useEffect(() => {
 
   return (
     <>
-      <Container sx={{ p: 2 }}>
+      <Container sx={{ p: 2, marginTop : 5, marginBottom : 5 }}>
         <Card sx={{ display: "flex", justifyContent: "center", p: 2 }}>
           <Box sx={{ alignItems: "center" }}>
             <Typography variant="h4" gutterBottom>
@@ -41,5 +42,5 @@ useEffect(() => {
     </>
   );
 };
-
 export default SearchBar;
+

@@ -30,7 +30,11 @@ const App = () => {
             <List sx={{ display: "flex" }}>
               <ListItem>
                 <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-                  <Typography variant="h6" color="inherit">
+                  <Typography
+                    variant="h6"
+                    color="inherit"
+                    sx={{ "&:hover": { color: "#339933" } }}
+                  >
                     Home
                   </Typography>
                 </Link>
@@ -40,7 +44,11 @@ const App = () => {
                   to="/about"
                   style={{ textDecoration: "none", color: "black" }}
                 >
-                  <Typography sx={{}} variant="h6" color="inherit">
+                  <Typography
+                    sx={{ "&:hover": { color: "#339933" } }}
+                    variant="h6"
+                    color="inherit"
+                  >
                     About
                   </Typography>
                 </Link>
