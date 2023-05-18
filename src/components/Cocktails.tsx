@@ -42,6 +42,9 @@ const Cocktails = () => {
     <>
       <Container>
         {/* <Box sx={{ display: "flex" }}> */}
+        <Box sx={{display : 'flex', justifyContent : 'center', m : 2}}>
+          <Typography variant="h2">Cocktails </Typography>
+        </Box>
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
@@ -81,8 +84,13 @@ const Cocktails = () => {
                   <Typography paragraph>{drink.strCategory}</Typography>
                   <Box sx={{ display: "flex", justifyContent: "center" }}>
                     <Button
-                    variant="contained"
-                      sx={{ "&:hover": { backgroundColor: "#339933" } ,backgroundColor: "#339933", color : 'white', m : 2 }}
+                      variant="contained"
+                      sx={{
+                        "&:hover": { backgroundColor: "#339933" },
+                        backgroundColor: "#339933",
+                        color: "white",
+                        m: 2,
+                      }}
                       onClick={() => {
                         navigate(`/single/${drink.idDrink}`);
                       }}
