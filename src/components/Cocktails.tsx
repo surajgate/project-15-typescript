@@ -37,7 +37,6 @@ const Cocktails = () => {
           <Typography
             letterSpacing={3}
             fontWeight={"bold"}
-            fontFamily={"roboto"}
             variant="h4"
           >
             Cocktails{" "}
@@ -54,14 +53,15 @@ const Cocktails = () => {
                 <Card
                   key={drink.idDrink}
                   sx={{
-                    p: 0.5,
+                    p: 0,
                     alignItems: "center",
                     alignContent: "center",
+                    height : '100%'
                   }}
                 >
                   <Box sx={{ display: "flex", justifyContent: "center" }}>
                     <CardMedia
-                      sx={{ width: "20rem", height: "20rem" }}
+                      sx={{ width: "100%", }}
                       component="img"
                       src={drink.strDrinkThumb}
                     ></CardMedia>

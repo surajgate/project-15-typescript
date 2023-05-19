@@ -1,4 +1,11 @@
-import { Box, Button, CardMedia, Container, LinearProgress, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CardMedia,
+  Container,
+  LinearProgress,
+  Typography,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Data } from "../data";
 import { useNavigate, useParams } from "react-router";
@@ -55,7 +62,7 @@ const SingleCocktail = () => {
     strInstructions:
       "Pour all ingredients into a cocktail shaker, mix and serve over ice into a chilled glass.",
   };
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -66,7 +73,7 @@ const SingleCocktail = () => {
     };
   }, []);
 
-  if(isLoading){
+  if (isLoading) {
     return (
       <>
         <LinearProgress color="success" />
@@ -103,116 +110,109 @@ const SingleCocktail = () => {
                 sx={{ width: "30rem", marginRight: "2rem" }}
               ></CardMedia>
             </Box>
-            <Box sx={{ p: 2, m: 4 }}>
+            <Box sx={{ m : 4, p : 2}}>
               <Box sx={{ display: "flex", p: 1 }}>
-                <Box
-                  sx={{
-                    borderRadius: "15%",
-                    backgroundColor: "#d4e6a5",
-                    p: 0.8,
-                    height: "10%",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {/* <Typography fontSize={18} variant="h6"> */}
-                  Name :{/* </Typography> */}
-                </Box>
-                <Box sx={{ marginLeft: "1.22rem", marginTop: "5px" }}>
-                  <Typography paragraph>{strDrink}</Typography>
-                </Box>
-              </Box>
-              <Box sx={{ display: "flex", p: 1 }}>
-                <Box
-                  sx={{
-                    borderRadius: "15%",
-                    backgroundColor: "#d4e6a5",
-                    p: 0.8,
-                    height: "10%",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {/* <Typography fontSize={18} variant="h6"> */}
-                  Category :{/* </Typography> */}
-                </Box>
-                <Box sx={{ marginLeft: "1.22rem", marginTop: "5px" }}>
-                  <Typography paragraph>{strCategory}</Typography>
-                </Box>
-              </Box>
-              <Box sx={{ display: "flex", p: 1 }}>
-                <Box
-                  sx={{
-                    borderRadius: "15%",
-                    backgroundColor: "#d4e6a5",
-                    p: 0.8,
-                    height: "10%",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {/* <Typography fontSize={18} variant="h6"> */}
-                  Info :{/* </Typography> */}
-                </Box>
-                <Box sx={{ marginLeft: "1.22rem", marginTop: "5px" }}>
-                  <Typography paragraph>{strAlcoholic}</Typography>
-                </Box>
-              </Box>
-              <Box sx={{ display: "flex", p: 1 }}>
-                <Box
-                  sx={{
-                    borderRadius: "15%",
-                    backgroundColor: "#d4e6a5",
-                    p: 0.8,
-                    height: "10%",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {/* <Typography fontSize={18} variant="h6"> */}
-                  Glass :{/* </Typography> */}
-                </Box>
-                <Box sx={{ marginLeft: "1.22rem", marginTop: "5px" }}>
-                  <Typography paragraph>{strGlass}</Typography>
-                </Box>
-              </Box>
-              <Box sx={{ display: "flex", p: 1 }}>
-                <Box
-                  sx={{
-                    borderRadius: "15%",
-                    backgroundColor: "#d4e6a5",
-                    p: 0.8,
-                    height: "10%",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {/* <Typography
-                    fontSize={18}
+                <Typography paragraph sx={{ml : 1}}>
+                  <Box
+                    component="span"
                     sx={{
-                      width: "7rem",
+                      borderRadius: "8px",
+                      backgroundColor: "#d4e6a5",
+                      p: 0.8,
+                      fontWeight: "bold",
+                      mr: 1,
                     }}
-                    variant="h6"
-                  > */}
-                  Instructions :{/* </Typography> */}
-                </Box>
-                <Box sx={{ marginLeft: "1.22rem", marginTop: "5px" }}>
-                  <Typography paragraph>{strInstructions}</Typography>
-                </Box>
+                  >
+                    Name :
+                  </Box>
+                  {strDrink}
+                </Typography>
               </Box>
               <Box sx={{ display: "flex", p: 1 }}>
-                <Box
-                  sx={{
-                    borderRadius: "15%",
-                    backgroundColor: "#d4e6a5",
-                    p: 0.8,
-                    height: "10%",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {/* <Typography fontSize={18} variant="h6"> */}
-                  Ingredients :{/* </Typography> */}
-                </Box>
-                <Box sx={{ marginLeft: "1.22rem", marginTop: "5px" }}>
-                  <Typography paragraph>
-                    {strIngredient1}, {strIngredient2}, {strIngredient3}
-                  </Typography>
-                </Box>
+                <Typography paragraph sx={{ml : 1}}>
+                  <Box
+                    component="span"
+                    sx={{
+                      borderRadius: "8px",
+                      backgroundColor: "#d4e6a5",
+                      p: 0.8,
+                      fontWeight: "bold",
+                      mr: 1,
+                    }}
+                  >
+                    Category :
+                  </Box>
+                  {strCategory}
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", p: 1 }}>
+                <Typography paragraph sx={{ml : 1}}>
+                  <Box
+                    component="span"
+                    sx={{
+                      borderRadius: "8px",
+                      backgroundColor: "#d4e6a5",
+                      p: 0.8,
+                      fontWeight: "bold",
+                      mr: 1,
+                    }}
+                  >
+                    Info :
+                  </Box>
+                  {strAlcoholic}
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", p: 1 }}>
+                <Typography paragraph sx={{ml : 1}}>
+                  <Box
+                    component="span"
+                    sx={{
+                      borderRadius: "8px",
+                      backgroundColor: "#d4e6a5",
+                      p: 0.8,
+                      fontWeight: "bold",
+                      mr: 1,
+                    }}
+                  >
+                    Glass :
+                  </Box>
+                  {strGlass}
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", p: 1 }}>
+                <Typography paragraph sx={{ ml: 1 }}>
+                  <Box
+                    component="span"
+                    sx={{
+                      borderRadius: "8px",
+                      backgroundColor: "#d4e6a5",
+                      p: 0.8,
+                      fontWeight: "bold",
+                      mr: 1,
+                      lineHeight: 1.8,
+                    }}
+                  >
+                    Instructions :
+                  </Box>
+                  {strInstructions}
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", p: 1 }}>
+                <Typography paragraph sx={{ ml: 1 }}>
+                  <Box
+                    component="span"
+                    sx={{
+                      borderRadius: "8px",
+                      backgroundColor: "#d4e6a5",
+                      p: 0.8,
+                      fontWeight: "bold",
+                      mr: 1,
+                    }}
+                  >
+                    Ingredients :
+                  </Box>
+                  {strIngredient1}, {strIngredient2}, {strIngredient3}
+                </Typography>
               </Box>
             </Box>
           </Box>
