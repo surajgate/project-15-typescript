@@ -56,7 +56,8 @@ const Cocktails = () => {
                     p: 0,
                     alignItems: "center",
                     alignContent: "center",
-                    height : '100%'
+                    height : '100%',
+                    '&:hover' : {boxShadow : 15}
                   }}
                 >
                   <Box sx={{ display: "flex", justifyContent: "center" }}>
